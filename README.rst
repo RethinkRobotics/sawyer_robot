@@ -40,7 +40,7 @@ Other Sawyer Repositories
 +------------------+-----------------------------------------------------+
 | intera_sdk       | https://github.com/RethinkRobotics/intera_sdk       |
 +------------------+-----------------------------------------------------+
-| moveit_sawyer    | https://github.com/RethinkRobotics/moveit_sawyer    |
+| sawyer_moveit    | https://github.com/RethinkRobotics/sawyer_moveit    |
 +------------------+-----------------------------------------------------+
 | sawyer_simulator | https://github.com/RethinkRobotics/sawyer_simulator |
 +------------------+-----------------------------------------------------+
