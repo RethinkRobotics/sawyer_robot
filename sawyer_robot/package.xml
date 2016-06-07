@@ -22,6 +22,8 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <run_depend>intera_sdk</run_depend>
+  <run_depend>intera_common</run_depend>
   <run_depend>sawyer_description</run_depend>
   
   <export>
