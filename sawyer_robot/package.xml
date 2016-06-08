@@ -10,7 +10,7 @@
   <maintainer email="rsdk.support@rethinkrobotics.com">
     Rethink Robotics Inc.
   </maintainer>
-  <license>Apache 2.0</license>
+  <license>BSD</license>
   <url type="website">http://sdk.rethinkrobotics.com/</url>
   <url type="repository">
     https://github.com/RethinkRobotics/sawyer_robot
