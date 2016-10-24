@@ -324,7 +324,7 @@
   </joint>
   <link name="right_hand_camera"/>
   <joint name="right_hand_camera" type="fixed">
-    <origin rpy="0 1.57079632679 0" xyz="0.019552 -0.033 0.0695"/>
+    <origin rpy="0 1.57079632679 0" xyz="0.039552 -0.033 0.0695"/>
     <parent link="right_l5"/>
     <child link="right_hand_camera"/>
     <axis xyz="0 0 0"/>
@@ -409,7 +409,7 @@
   </joint>
   <link name="head_camera"/>
   <joint name="head_camera" type="fixed">
-    <origin rpy="-2.1293 0 -1.57079632679" xyz="0.015925 0 0.22087"/>
+    <origin rpy="-2.1293 0 -1.57079632679" xyz="0.0228027 0 0.216572"/>
     <parent link="head"/>
     <child link="head_camera"/>
     <axis xyz="0 0 0"/>
