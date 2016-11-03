@@ -56,6 +56,32 @@
       <inertia ixx="5.0635929" ixy="0.00103417" ixz="0.80199628" iyy="6.08689388" iyz="0.00105311" izz="4.96191932"/>
     </inertial>
   </link>
+  <link name="controller_box">
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.325 0 -0.38"/>
+      <geometry>
+        <box size="0.22 0.4 0.53"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="controller_box_fixed" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+    <parent link="base"/>
+    <child link="controller_box"/>
+  </joint>
+  <link name="pedestal_feet">
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.1225 0 -0.758"/>
+      <geometry>
+        <box size="0.77 0.7 0.31"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="pedestal_feet_fixed" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+    <parent link="base"/>
+    <child link="pedestal_feet"/>
+  </joint>
   <joint name="torso_t0" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="base"/>
