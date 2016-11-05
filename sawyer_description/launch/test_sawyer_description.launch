@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<launch>
+ <!-- Load the URDF into the ROS Parameter Server -->
+ <param name="robot_description" command="cat '$(find sawyer_description)urdf/sawyer.urdf'" />
+
+ <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen" args="_use_gui:=true"/>
+
+ <!-- Publish a static transform between the world and the base of the robot -->
+ <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_world" args="0 0 0 0 0 0 1 world base" />
+
+ <node name="robot_state_publisher" type="robot_state_publisher" pkg="robot_state_publisher" output="screen"/>
+
+ <node name="rviz" pkg="rviz" type="rviz" args="--display-config $(find sawyer_description)config/sawyer.rviz" required="true"/>
+
+</launch>
