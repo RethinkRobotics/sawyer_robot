@@ -13,8 +13,3 @@
     #uri: https://github.com/RethinkRobotics/sawyer_robot.git
     uri: git@github.com:RethinkRobotics/sawyer_robot.git
     version: release-5.0.4
-- git:
-    local-name: sawyer_moveit
-    #uri: https://github.com/RethinkRobotics/sawyer_moveit.git
-    uri: git@github.com:RethinkRobotics/sawyer_moveit.git
-    version: release-5.0.4
