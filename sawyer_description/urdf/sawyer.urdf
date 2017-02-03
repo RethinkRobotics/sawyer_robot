@@ -267,9 +267,9 @@
   </joint>
   <link name="right_l4">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.001461 0.007033 0.137559"/>
-      <mass value="1.052926"/>
-      <inertia ixx="0.013448" ixy="0.000012" ixz="0.000113" iyy="0.013464" iyz="0.001085" izz="0.001308"/>
+      <origin rpy="0 0 0" xyz="-0.0018844 0.0069001 0.1341"/>
+      <mass value="1.1136"/>
+      <inertia ixx="0.013557" ixy="1.8109E-05" ixz="0.00013523" iyy="0.013555" iyz="0.0010561" izz="0.0013658"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
