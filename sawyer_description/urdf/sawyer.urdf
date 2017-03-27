@@ -45,7 +45,7 @@
       <material name="darkgray"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.30"/>
+      <origin rpy="0 0 0" xyz="-0.02 0 -0.29"/>
       <geometry>
         <cylinder length="0.62" radius="0.18"/>
       </geometry>
@@ -131,7 +131,7 @@
       <material name="sawyer_red"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.081 0 0.237"/>
+      <origin rpy="0 0 0" xyz="0.08 0 0.23"/>
       <geometry>
         <sphere radius="0.07"/>
       </geometry>
@@ -169,7 +169,7 @@
     <parent link="right_l0"/>
     <child link="head"/>
     <axis xyz="0 0 1"/>
-    <limit effort="8" lower="-5.1477" upper="0.9559" velocity="1.8"/>
+    <limit effort="8" lower="-5.0952" upper="0.9064" velocity="1.8"/>
   </joint>
   <link name="right_torso_itb">
     <inertial>
@@ -209,13 +209,13 @@
     <parent link="right_l0"/>
     <child link="right_l1"/>
     <axis xyz="0 0 1"/>
-    <limit effort="80.0" lower="-3.8183" upper="2.2824" velocity="1.328"/>
+    <limit effort="80.0" lower="-3.8095" upper="2.2736" velocity="1.328"/>
   </joint>
   <link name="right_l2">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00016232 -0.015346 0.13445"/>
-      <mass value="1.7251"/>
-      <inertia ixx="0.025176" ixy="4.3031E-06" ixz="1.4564E-05" iyy="0.024982" iyz="-0.0033928" izz="0.0033798"/>
+      <origin rpy="0 0 0" xyz="-0.00016044 -0.014967 0.13582"/>
+      <mass value="1.745"/>
+      <inertia ixx="0.025506" ixy="4.4101E-06" ixz="1.4955E-05" iyy="0.0253" iyz="-0.0033204" izz="0.0034179"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -225,9 +225,9 @@
       <material name="sawyer_red"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.14"/>
+      <origin rpy="0 0 0" xyz="0 0 0.08"/>
       <geometry>
-        <cylinder length="0.35" radius="0.06"/>
+        <cylinder length="0.34" radius="0.06"/>
       </geometry>
     </collision>
   </link>
@@ -236,13 +236,13 @@
     <parent link="right_l1"/>
     <child link="right_l2"/>
     <axis xyz="0 0 1"/>
-    <limit effort="40.0" lower="-3.0514" upper="3.0514" velocity="1.957"/>
+    <limit effort="40.0" lower="-3.0426" upper="3.0426" velocity="1.957"/>
   </joint>
   <link name="right_l3">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.0046678 -0.028394 -0.083127"/>
-      <mass value="2.4743"/>
-      <inertia ixx="0.0099549" ixy="-1.7675E-05" ixz="0.00027521" iyy="0.0064248" iyz="0.0030853" izz="0.0067746"/>
+      <origin rpy="0 0 0" xyz="-0.0048135 -0.0281 -0.084154"/>
+      <mass value="2.5097"/>
+      <inertia ixx="0.01016" ixy="-9.7452E-06" ixz="0.00026624" iyy="0.0065685" iyz="0.0030316" izz="0.0069078"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -263,13 +263,13 @@
     <parent link="right_l2"/>
     <child link="right_l3"/>
     <axis xyz="0 0 1"/>
-    <limit effort="40.0" lower="-3.0514" upper="3.0514" velocity="1.957"/>
+    <limit effort="40.0" lower="-3.0439" upper="3.0439" velocity="1.957"/>
   </joint>
   <link name="right_l4">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.0027794 0.0076558 0.13273"/>
-      <mass value="1.0433"/>
-      <inertia ixx="0.012913" ixy="2.573E-05" ixz="0.00017705" iyy="0.012939" iyz="0.0011152" izz="0.0012405"/>
+      <origin rpy="0 0 0" xyz="-0.0018844 0.0069001 0.1341"/>
+      <mass value="1.1136"/>
+      <inertia ixx="0.013557" ixy="1.8109E-05" ixz="0.00013523" iyy="0.013555" iyz="0.0010561" izz="0.0013658"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -279,9 +279,9 @@
       <material name="sawyer_red"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.14"/>
+      <origin rpy="0 0 0" xyz="0 0 0.11"/>
       <geometry>
-        <cylinder length="0.36" radius="0.045"/>
+        <cylinder length="0.30" radius="0.045"/>
       </geometry>
     </collision>
   </link>
@@ -290,7 +290,7 @@
     <parent link="right_l3"/>
     <child link="right_l4"/>
     <axis xyz="0 0 1"/>
-    <limit effort="9.0" lower="-2.9842" upper="2.9842" velocity="3.485"/>
+    <limit effort="9.0" lower="-2.9761" upper="2.9761" velocity="3.485"/>
   </joint>
   <link name="right_arm_itb">
     <inertial>
@@ -307,9 +307,9 @@
   </joint>
   <link name="right_l5">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.0062067 -0.024291 0.075564"/>
-      <mass value="1.5343"/>
-      <inertia ixx="0.0046072" ixy="0.00012002" ixz="5.3065E-05" iyy="0.0028725" iyz="-0.0011886" izz="0.003101"/>
+      <origin rpy="0 0 0" xyz="0.0061133 -0.023697 0.076416"/>
+      <mass value="1.5625"/>
+      <inertia ixx="0.0047328" ixy="0.00011526" ixz="4.6269E-05" iyy="0.0029676" iyz="-0.0011557" izz="0.0031762"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -319,7 +319,7 @@
       <material name="sawyer_red"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.01 0 0.09"/>
+      <origin rpy="0 0 0" xyz="0 0 0.1"/>
       <geometry>
         <sphere radius="0.06"/>
       </geometry>
@@ -330,7 +330,7 @@
     <parent link="right_l4"/>
     <child link="right_l5"/>
     <axis xyz="0 0 1"/>
-    <limit effort="9.0" lower="-2.9842" upper="2.9842" velocity="3.485"/>
+    <limit effort="9.0" lower="-2.9761" upper="2.9761" velocity="3.485"/>
   </joint>
   <link name="right_hand_camera"/>
   <joint name="right_hand_camera" type="fixed">
@@ -360,9 +360,9 @@
       <material name="sawyer_red"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.005"/>
+      <origin rpy="0 0 0" xyz="0 0.015 -0.01"/>
       <geometry>
-        <cylinder length="0.05" radius="0.065"/>
+        <cylinder length="0.05" radius="0.055"/>
       </geometry>
     </collision>
   </link>
@@ -371,13 +371,13 @@
     <parent link="right_l5"/>
     <child link="right_l6"/>
     <axis xyz="0 0 1"/>
-    <limit effort="9.0" lower="-4.7104" upper="4.7104" velocity="4.545"/>
+    <limit effort="9.0" lower="-4.7124" upper="4.7124" velocity="4.545"/>
   </joint>
   <link name="right_hand">
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0.02"/>
       <geometry>
-        <cylinder length="0.04" radius="0.06"/>
+        <cylinder length="0.03" radius="0.035"/>
       </geometry>
     </collision>
     <inertial>
@@ -391,6 +391,63 @@
     <axis xyz="0 0 1"/>
     <parent link="right_l6"/>
     <child link="right_hand"/>
+  </joint>
+  <link name="right_l1_2">
+    <inertial>
+      <origin rpy="0 0 0" xyz="1.0E-08 1.0E-08 1.0E-08"/>
+      <mass value="1.0E-08"/>
+      <inertia ixx="1.0E-08" ixy="1.0E-08" ixz="1.0E-08" iyy="1.0E-08" iyz="1.0E-08" izz="1.0E-08"/>
+    </inertial>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.035"/>
+      <geometry>
+        <cylinder length="0.14" radius="0.07"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_j1_2" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="right_l1"/>
+    <child link="right_l1_2"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <link name="right_l2_2">
+    <inertial>
+      <origin rpy="0 0 0" xyz="1.0E-08 1.0E-08 1.0E-08"/>
+      <mass value="1.0E-08"/>
+      <inertia ixx="1.0E-08" ixy="1.0E-08" ixz="1.0E-08" iyy="1.0E-08" iyz="1.0E-08" izz="1.0E-08"/>
+    </inertial>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.26"/>
+      <geometry>
+        <sphere radius="0.06"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_j2_2" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="right_l2"/>
+    <child link="right_l2_2"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <link name="right_l4_2">
+    <inertial>
+      <origin rpy="0 0 0" xyz="1.0E-08 1.0E-08 1.0E-08"/>
+      <mass value="1.0E-08"/>
+      <inertia ixx="1.0E-08" ixy="1.0E-08" ixz="1.0E-08" iyy="1.0E-08" iyz="1.0E-08" izz="1.0E-08"/>
+    </inertial>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0.01 0.26"/>
+      <geometry>
+        <sphere radius="0.06"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_j4_2" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="right_l4"/>
+    <child link="right_l4_2"/>
+    <axis xyz="0 0 1"/>
   </joint>
   <link name="screen">
     <visual>
@@ -425,3 +482,4 @@
     <axis xyz="0 0 0"/>
   </joint>
 </robot>
+

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>sawyer_robot</name>
-  <version>5.0.4</version>
+  <version>5.1.0</version>
   <description>
     sawyer_robot metapackage for all of the packages required 
     to work with the Sawyer Robot from Rethink Robotics.
@@ -10,7 +10,7 @@
   <maintainer email="rsdk.support@rethinkrobotics.com">
     Rethink Robotics Inc.
   </maintainer>
-  <license>BSD</license>
+  <license>Apache 2.0</license>
   <url type="website">http://sdk.rethinkrobotics.com/intera/</url>
   <url type="repository">
     https://github.com/RethinkRobotics/sawyer_robot
