@@ -9,6 +9,14 @@
     </plugin>
   </gazebo -->
   <!-- Gazebo-Specific Link Properties -->
+  <link name="world"/>
+    <joint name="fixed" type="fixed">
+      <parent link="world"/>
+      <child link="base"/>
+  </joint>
+  <gazebo reference="pedestal">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
   <gazebo reference="torso">
     <self_collide>true</self_collide>
   </gazebo>
