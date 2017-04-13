@@ -1,13 +1,21 @@
 <?xml version="1.0" ?>
 <robot name="baxter" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- ros_control plugin -->
-  <!-- gazebo>
+  <!--gazebo>
+    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+      <robotNamespace>/robot</robotNamespace>
+      <jointName>right_j0, right_j1, right_j2, right_j3, right_j4</jointName>
+      <updateRate>100.0</updateRate>
+      <alwaysOn>true</alwaysOn>
+    </plugin>
+  </gazebo-->
+  <gazebo>
     <plugin name="sawyer_ros_control" filename="libsawyer_gazebo_ros_control.so">
       <robotNamespace>/robot</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
       <controlPeriod>0.001</controlPeriod>
     </plugin>
-  </gazebo -->
+  </gazebo>
   <!-- Gazebo-Specific Link Properties -->
   <link name="world"/>
     <joint name="fixed" type="fixed">
