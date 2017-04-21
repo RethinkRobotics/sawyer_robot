@@ -23,27 +23,35 @@
   </gazebo>
   <gazebo reference="head_pan">
     <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
   </gazebo>
   <gazebo reference="right_j0">
     <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
   </gazebo>
   <gazebo reference="right_j1">
     <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
   </gazebo>
   <gazebo reference="right_j2">
     <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
   </gazebo>
   <gazebo reference="right_j3">
     <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
   </gazebo>
   <gazebo reference="right_j4">
     <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
   </gazebo>
   <gazebo reference="right_j5">
     <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
   </gazebo>
   <gazebo reference="right_j6">
     <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
   </gazebo>
   <!-- Gazebo-Specific Sensor Properties -->
   <gazebo reference="head_camera">
