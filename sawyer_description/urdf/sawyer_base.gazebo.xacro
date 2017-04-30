@@ -4,7 +4,7 @@
   <gazebo>
     <plugin name="sawyer_ros_control" filename="libsawyer_gazebo_ros_control.so">
       <robotNamespace>/robot</robotNamespace>
-      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <robotSimType>sawyer_gazebo/SawyerRobotHWSim</robotSimType>
       <controlPeriod>0.001</controlPeriod>
     </plugin>
   </gazebo>
