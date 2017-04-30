@@ -6,6 +6,7 @@
       <robotNamespace>/robot</robotNamespace>
       <robotSimType>sawyer_gazebo/SawyerRobotHWSim</robotSimType>
       <controlPeriod>0.001</controlPeriod>
+      <eStopTopic>sim_estop</eStopTopic>
     </plugin>
   </gazebo>
   <!-- Gazebo-Specific Link Properties -->
