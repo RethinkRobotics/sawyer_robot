@@ -144,6 +144,7 @@
     <child link="right_l0"/>
     <axis xyz="0 0 1"/>
     <limit effort="80.0" lower="-3.0503" upper="3.0503" velocity="1.74"/>
+    <dynamics damping="5.0" friction="5.0"/>
   </joint>
   <link name="head">
     <inertial>
@@ -171,6 +172,7 @@
     <child link="head"/>
     <axis xyz="0 0 1"/>
     <limit effort="8" lower="-5.0952" upper="0.9064" velocity="1.8"/>
+    <dynamics damping="1.0" friction="0.5"/>
   </joint>
   <link name="right_torso_itb">
     <inertial>
@@ -211,6 +213,7 @@
     <child link="right_l1"/>
     <axis xyz="0 0 1"/>
     <limit effort="80.0" lower="-3.8095" upper="2.2736" velocity="1.328"/>
+    <dynamics damping="5.0" friction="5.0"/>
   </joint>
   <link name="right_l2">
     <inertial>
@@ -238,6 +241,7 @@
     <child link="right_l2"/>
     <axis xyz="0 0 1"/>
     <limit effort="40.0" lower="-3.0426" upper="3.0426" velocity="1.957"/>
+    <dynamics damping="5.0" friction="5.0"/>
   </joint>
   <link name="right_l3">
     <inertial>
@@ -265,6 +269,7 @@
     <child link="right_l3"/>
     <axis xyz="0 0 1"/>
     <limit effort="40.0" lower="-3.0439" upper="3.0439" velocity="1.957"/>
+    <dynamics damping="5.0" friction="5.0"/>
   </joint>
   <link name="right_l4">
     <inertial>
@@ -292,6 +297,7 @@
     <child link="right_l4"/>
     <axis xyz="0 0 1"/>
     <limit effort="9.0" lower="-2.9761" upper="2.9761" velocity="3.485"/>
+    <dynamics damping="5.0" friction="5.0"/>
   </joint>
   <link name="right_arm_itb">
     <inertial>
@@ -332,6 +338,7 @@
     <child link="right_l5"/>
     <axis xyz="0 0 1"/>
     <limit effort="9.0" lower="-2.9761" upper="2.9761" velocity="3.485"/>
+    <dynamics damping="5.0" friction="5.0"/>
   </joint>
   <link name="right_hand_camera"/>
   <joint name="right_hand_camera" type="fixed">
@@ -373,6 +380,7 @@
     <child link="right_l6"/>
     <axis xyz="0 0 1"/>
     <limit effort="9.0" lower="-4.7124" upper="4.7124" velocity="4.545"/>
+    <dynamics damping="5.0" friction="5.0"/>
   </joint>
   <link name="right_hand">
     <collision>
@@ -483,4 +491,3 @@
     <axis xyz="0 0 0"/>
   </joint>
 </robot>
-
