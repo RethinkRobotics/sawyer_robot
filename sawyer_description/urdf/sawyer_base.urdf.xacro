@@ -297,7 +297,7 @@
     <child link="right_l4"/>
     <axis xyz="0 0 1"/>
     <limit effort="9.0" lower="-2.9761" upper="2.9761" velocity="3.485"/>
-    <dynamics damping="5.0" friction="5.0"/>
+    <dynamics damping="2.0" friction="2.0"/>
   </joint>
   <link name="right_arm_itb">
     <inertial>
@@ -338,7 +338,7 @@
     <child link="right_l5"/>
     <axis xyz="0 0 1"/>
     <limit effort="9.0" lower="-2.9761" upper="2.9761" velocity="3.485"/>
-    <dynamics damping="5.0" friction="5.0"/>
+    <dynamics damping="2.0" friction="2.0"/>
   </joint>
   <link name="right_hand_camera"/>
   <joint name="right_hand_camera" type="fixed">
@@ -380,7 +380,7 @@
     <child link="right_l6"/>
     <axis xyz="0 0 1"/>
     <limit effort="9.0" lower="-4.7124" upper="4.7124" velocity="4.545"/>
-    <dynamics damping="5.0" friction="5.0"/>
+    <dynamics damping="2.0" friction="2.0"/>
   </joint>
   <link name="right_hand">
     <collision>
