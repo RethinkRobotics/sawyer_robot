@@ -138,12 +138,12 @@
       </plugin>
     </sensor>
   </gazebo>
-  <gazebo reference="display">
+  <gazebo reference="screen">
     <visual>
       <plugin name="screen_video_controller" filename="libgazebo_ros_video.so">
         <height>600</height>
         <width>1024</width>
-        <topicName>/robot/display</topicName>
+        <topicName>/robot/head_display</topicName>
         <robotNamespace>/robot</robotNamespace>
       </plugin>
     </visual>
