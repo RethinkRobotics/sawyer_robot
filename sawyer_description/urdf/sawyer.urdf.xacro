@@ -2,12 +2,16 @@
 <robot name="sawyer" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:arg name="gazebo" default="false"/>
+  <xacro:arg name="electric_gripper" default="false"/>
   <!-- Sawyer Base URDF -->
   <xacro:include filename="$(find sawyer_description)/urdf/sawyer_base.urdf.xacro">
     <xacro:arg name="gazebo" value="${gazebo}"/>
   </xacro:include>
-
-  <!-- Right End Effector -->
-  <!-- xacro:include filename="$(find sawyer_description)/urdf/right_end_effector.urdf.xacro" / -->
+  <!-- Electric Gripper End Effector -->
+  <xacro:if value="$(arg electric_gripper)">
+    <xacro:include filename="$(find sawyer_description)/urdf/sawyer_electric_gripper.urdf.xacro">
+      <xacro:arg name="gazebo" value="${gazebo}"/>
+    </xacro:include>
+  </xacro:if>
 
 </robot>
