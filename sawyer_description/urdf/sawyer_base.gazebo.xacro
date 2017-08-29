@@ -1,0 +1,234 @@
+<?xml version="1.0" ?>
+<robot name="baxter" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="sawyer_ros_control" filename="libsawyer_gazebo_ros_control.so">
+      <robotNamespace>/robot</robotNamespace>
+      <robotSimType>sawyer_gazebo/SawyerRobotHWSim</robotSimType>
+      <controlPeriod>0.001</controlPeriod>
+      <eStopTopic>sim_estop</eStopTopic>
+    </plugin>
+  </gazebo>
+  <!-- Gazebo-Specific Link Properties -->
+  <link name="world"/>
+    <joint name="fixed" type="fixed">
+      <parent link="world"/>
+      <child link="base"/>
+  </joint>
+  <gazebo reference="pedestal">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  <gazebo reference="torso">
+    <self_collide>true</self_collide>
+  </gazebo>
+  <gazebo reference="head_pan">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <gazebo reference="right_j0">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <gazebo reference="right_j1">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <gazebo reference="right_j2">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <gazebo reference="right_j3">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <gazebo reference="right_j4">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <gazebo reference="right_j5">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <gazebo reference="right_j6">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <!-- Gazebo-Specific Sensor Properties -->
+  <gazebo reference="head_camera">
+    <sensor name="head_camera" type="camera">
+      <update_rate>30.0</update_rate>
+      <camera name="head_camera">
+        <pose>0.0 0.21 0.0 0.0 -0.8 -1.570796327 </pose>
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin filename="libgazebo_ros_camera.so" name="camera_controller">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>head_camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>head_camera</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0.0</Cx>
+        <Cy>0.0</Cy>
+        <focalLength>0.0</focalLength>
+        <robotNamespace>/io/internal_camera</robotNamespace>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="right_hand_camera">
+    <sensor name="right_hand_camera" type="camera">
+      <update_rate>30.0</update_rate>
+      <camera name="right_hand_camera">
+        <pose>0.0 0.0 0.0 0.0 -1.570796327 1.570796327 </pose>
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>L8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin filename="libgazebo_ros_camera.so" name="camera_controller">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>right_hand_camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>right_hand_camera</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0.0</Cx>
+        <Cy>0.0</Cy>
+        <focalLength>0.0</focalLength>
+        <robotNamespace>/io/internal_camera</robotNamespace>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="screen">
+    <visual>
+      <plugin name="screen_video_controller" filename="libgazebo_ros_video.so">
+        <height>600</height>
+        <width>1024</width>
+        <topicName>/robot/head_display</topicName>
+        <robotNamespace>/robot</robotNamespace>
+      </plugin>
+    </visual>
+  </gazebo>
+  <!-- Transmissions -->
+  <!-- Right Arm -->
+  <transmission name="right_tran0">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_j0">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_motor0">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_j1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_motor1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_j2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_motor2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_j3">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_motor3">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_j4">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_motor4">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_tran5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_j5">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_motor5">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="right_tran6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_j6">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_motor6">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <!-- Head -->
+  <transmission name="head0">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="head_pan">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="head_motor0">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>
