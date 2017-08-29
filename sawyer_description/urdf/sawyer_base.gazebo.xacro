@@ -56,12 +56,20 @@
   <!-- Gazebo-Specific Sensor Properties -->
   <gazebo reference="head_camera">
     <sensor name="head_camera" type="camera">
-      <update_rate>30.0</update_rate>
+      <update_rate>6.75</update_rate>
       <camera name="head_camera">
-        <pose>0.0 0.21 0.0 0.0 -0.8 -1.570796327 </pose>
-        <horizontal_fov>1.3962634</horizontal_fov>
+        <pose>-1.570796 -1.570796 0.0 0.0 0.0 0.0</pose>
+        <horizontal_fov>2.00787026</horizontal_fov>
+        <distortion>
+          <k1>0.6545419633392568</k1>
+          <k2>0.012904541485280972</k2>
+          <k3>-0.012279942338550547</k3>
+          <p1>-0.00036475699823703154</p1>
+          <p2>3.334461262764956e-05</p2>
+          <center>677.8808657338167 382.02964533321426</center>
+        </distortion>
         <image>
-          <width>800</width>
+          <width>1280</width>
           <height>800</height>
           <format>R8G8B8</format>
         </image>
@@ -69,73 +77,69 @@
           <near>0.02</near>
           <far>300</far>
         </clip>
-        <noise>
-          <type>gaussian</type>
-          <mean>0.0</mean>
-          <stddev>0.007</stddev>
-        </noise>
       </camera>
       <plugin filename="libgazebo_ros_camera.so" name="camera_controller">
         <alwaysOn>true</alwaysOn>
-        <updateRate>0.0</updateRate>
+        <updateRate>6.75</updateRate>
         <cameraName>head_camera</cameraName>
-        <imageTopicName>image_raw</imageTopicName>
-        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <imageTopicName>/io/internal_camera/head_camera/image_raw</imageTopicName>
+        <cameraInfoTopicName>/io/internal_camera/head_camera/camera_info</cameraInfoTopicName>
         <frameName>head_camera</frameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-        <CxPrime>0</CxPrime>
-        <Cx>0.0</Cx>
-        <Cy>0.0</Cy>
-        <focalLength>0.0</focalLength>
-        <robotNamespace>/io/internal_camera</robotNamespace>
+        <hackBaseline>0.0</hackBaseline>
+        <distortionK1>0.6545419633392568</distortionK1>
+        <distortionK2>0.012904541485280972</distortionK2>
+        <distortionK3>-0.012279942338550547</distortionK3>
+        <distortionT1>-0.00036475699823703154</distortionT1>
+        <distortionT2>3.334461262764956e-05</distortionT2>
+        <Cx>677.8808657338167</Cx>
+        <Cy>382.02964533321426</Cy>
+        <focalLength>407.391526</focalLength>
       </plugin>
+<visualize>true</visualize>
     </sensor>
   </gazebo>
   <gazebo reference="right_hand_camera">
     <sensor name="right_hand_camera" type="camera">
-      <update_rate>30.0</update_rate>
+      <update_rate>5.0</update_rate>
       <camera name="right_hand_camera">
-        <pose>0.0 0.0 0.0 0.0 -1.570796327 1.570796327 </pose>
-        <horizontal_fov>1.3962634</horizontal_fov>
+        <pose>0.0 0.0 0.0 0.0 0.0 0.0 </pose>
+        <horizontal_fov>1.0992892</horizontal_fov>
         <image>
-          <width>800</width>
-          <height>800</height>
+          <width>752</width>
+          <height>480</height>
           <format>L8</format>
         </image>
         <clip>
           <near>0.02</near>
           <far>300</far>
         </clip>
-        <noise>
-          <type>gaussian</type>
-          <mean>0.0</mean>
-          <stddev>0.007</stddev>
-        </noise>
+        <distortion>
+          <k1>-0.442</k1>
+          <k2>0.273</k2>
+          <k3>-0.123</k3>
+          <p1>0.0</p1>
+          <p2>0.0</p2>
+          <center>365.734985 237.988998</center>
+        </distortion>
       </camera>
       <plugin filename="libgazebo_ros_camera.so" name="camera_controller">
         <alwaysOn>true</alwaysOn>
-        <updateRate>0.0</updateRate>
+        <updateRate>5.0</updateRate>
         <cameraName>right_hand_camera</cameraName>
-        <imageTopicName>image_raw</imageTopicName>
-        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <imageTopicName>/io/internal_camera/right_hand_camera/image_raw</imageTopicName>
+        <cameraInfoTopicName>/io/internal_camera/right_hand_camera/camera_info</cameraInfoTopicName>
         <frameName>right_hand_camera</frameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
+        <hackBaseline>0.0</hackBaseline>
+        <distortionK1>-0.442</distortionK1>
+        <distortionK2>0.273</distortionK2>
+        <distortionK3>-0.123</distortionK3>
         <distortionT1>0.0</distortionT1>
         <distortionT2>0.0</distortionT2>
-        <CxPrime>0</CxPrime>
-        <Cx>0.0</Cx>
-        <Cy>0.0</Cy>
-        <focalLength>0.0</focalLength>
-        <robotNamespace>/io/internal_camera</robotNamespace>
+        <Cx>365.734985</Cx>
+        <Cy>237.988998</Cy>
+        <focalLength>613.760435</focalLength>
       </plugin>
+<visualize>true</visualize>
     </sensor>
   </gazebo>
   <gazebo reference="screen">
