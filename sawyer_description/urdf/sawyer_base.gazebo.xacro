@@ -53,12 +53,16 @@
     <implicitSpringDamper>1</implicitSpringDamper>
     <provideFeedback>true</provideFeedback>
   </gazebo>
-  <!-- Gazebo-Specific Sensor Properties -->
-  <gazebo reference="head_camera">
+   <joint name="head_camera_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="${-pi} ${-pi/2.0} ${-pi/2.0}"/>
+    <parent link="head_camera"/>
+    <child link="head_camera_optical"/>
+  </joint>
+  <link name="head_camera_optical"/>
+  <gazebo reference="head_camera_optical">
     <sensor name="head_camera" type="camera">
       <update_rate>6.75</update_rate>
       <camera name="head_camera">
-        <pose>-1.570796 -1.570796 0.0 0.0 0.0 0.0</pose>
         <horizontal_fov>2.00787026</horizontal_fov>
         <distortion>
           <k1>0.6545419633392568</k1>
@@ -95,15 +99,19 @@
         <Cy>382.02964533321426</Cy>
         <focalLength>407.391526</focalLength>
       </plugin>
-<visualize>true</visualize>
     </sensor>
   </gazebo>
-  <gazebo reference="right_hand_camera">
+  <joint name="right_hand_camera_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="${-pi} ${-pi/2.0} ${-pi/2.0}"/>
+    <parent link="right_hand_camera"/>
+    <child link="right_hand_camera_optical"/>
+  </joint>
+  <link name="right_hand_camera_optical"/>
+  <gazebo reference="right_hand_camera_optical">
     <sensor name="right_hand_camera" type="camera">
       <update_rate>5.0</update_rate>
       <camera name="right_hand_camera">
-        <pose>0.0 0.0 0.0 0.0 0.0 0.0 </pose>
-        <horizontal_fov>1.0992892</horizontal_fov>
+        <!-- horizontal_fov>1.0992892</horizontal_fov -->
         <image>
           <width>752</width>
           <height>480</height>
@@ -113,14 +121,6 @@
           <near>0.02</near>
           <far>300</far>
         </clip>
-        <distortion>
-          <k1>-0.442</k1>
-          <k2>0.273</k2>
-          <k3>-0.123</k3>
-          <p1>0.0</p1>
-          <p2>0.0</p2>
-          <center>365.734985 237.988998</center>
-        </distortion>
       </camera>
       <plugin filename="libgazebo_ros_camera.so" name="camera_controller">
         <alwaysOn>true</alwaysOn>
@@ -129,17 +129,7 @@
         <imageTopicName>/io/internal_camera/right_hand_camera/image_raw</imageTopicName>
         <cameraInfoTopicName>/io/internal_camera/right_hand_camera/camera_info</cameraInfoTopicName>
         <frameName>right_hand_camera</frameName>
-        <hackBaseline>0.0</hackBaseline>
-        <distortionK1>-0.442</distortionK1>
-        <distortionK2>0.273</distortionK2>
-        <distortionK3>-0.123</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-        <Cx>365.734985</Cx>
-        <Cy>237.988998</Cy>
-        <focalLength>613.760435</focalLength>
       </plugin>
-<visualize>true</visualize>
     </sensor>
   </gazebo>
   <gazebo reference="screen">
