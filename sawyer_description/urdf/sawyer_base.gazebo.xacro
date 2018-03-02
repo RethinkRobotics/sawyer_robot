@@ -109,7 +109,36 @@
     <parent link="right_hand_camera"/>
     <child link="right_hand_camera_optical"/>
   </joint>
-  <link name="right_hand_camera_optical"/>
+  <link name="right_hand_camera_optical">
+    <!-- light name="cognex_strobe" type="spot">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 0.1 0 0 0</pose -->
+      <!-- diffuse>126 126 126 255</diffuse -->
+      <!-- specular>23 23 23 255</specular -->
+      <!-- diffuse>0.5 0.5 0.5 1.0</diffuse>
+      <specular>0.1 0.1 0.1 1.0</specular>
+      <attenuation>
+        <range>2</range>
+        <linear>0.01</linear>
+        <constant>0.12</constant>
+        <quadratic>0.00</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0.6</inner_angle>
+        <outer_angle>0.6</outer_angle>
+        <falloff>1.5</falloff>
+      </spot>
+    </light -->
+  </link>
+  <plugin name="attach_light" filename="libAttachLightPlugin.so">
+    <link>
+      <link_name>right_hand_camera_optical</link_name>
+      <light>
+        <pose>0 0 0.1 0 0 0</pose>
+        <light_name>spot</light_name>
+      </light>
+    </link>
+  </plugin>
   <gazebo reference="right_hand_camera_optical">
     <sensor name="right_hand_camera" type="camera">
       <update_rate>10.0</update_rate>
