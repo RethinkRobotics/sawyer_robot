@@ -20,7 +20,13 @@
   <material name="sawyer_gray">
     <color rgba="0.75294 0.75294 0.75294 1"/>
   </material>
-  <link name="base"/>
+  <link name="base">
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.01"/>
+        <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+      </inertial>
+  </link>
   <link name="torso">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -33,8 +39,8 @@
     </visual>
     <inertial>
       <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
-      <mass value="0.0001"/>
-      <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
     </inertial>
   </link>
   <link name="pedestal">
@@ -64,6 +70,11 @@
         <box size="0.22 0.4 0.53"/>
       </geometry>
     </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
   </link>
   <joint name="controller_box_fixed" type="fixed">
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
@@ -77,6 +88,11 @@
         <box size="0.77 0.7 0.31"/>
       </geometry>
     </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
   </link>
   <joint name="pedestal_feet_fixed" type="fixed">
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
@@ -173,19 +189,6 @@
     <axis xyz="0 0 1"/>
     <limit effort="8" lower="-5.0952" upper="0.9064" velocity="1.8"/>
     <dynamics damping="1.0" friction="0.5"/>
-  </joint>
-  <link name="right_torso_itb">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
-      <mass value="0.0001"/>
-      <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
-    </inertial>
-  </link>
-  <joint name="right_torso_itb" type="fixed">
-    <origin rpy="0 -1.57079632679 0" xyz="-.055 0 .22"/>
-    <parent link="right_l0"/>
-    <child link="right_torso_itb"/>
-    <axis xyz="0 0 1"/>
   </joint>
   <link name="right_l1">
     <inertial>
@@ -299,19 +302,6 @@
     <limit effort="9.0" lower="-2.9761" upper="2.9761" velocity="3.485"/>
     <dynamics damping="2.0" friction="2.0"/>
   </joint>
-  <link name="right_arm_itb">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
-      <mass value="0.0001"/>
-      <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
-    </inertial>
-  </link>
-  <joint name="right_arm_itb" type="fixed">
-    <origin rpy="0 -1.57079632679 0" xyz="-.055 0 .075"/>
-    <parent link="right_l4"/>
-    <child link="right_arm_itb"/>
-    <axis xyz="0 0 1"/>
-  </joint>
   <link name="right_l5">
     <inertial>
       <origin rpy="0 0 0" xyz="0.0061133 -0.023697 0.076416"/>
@@ -340,14 +330,26 @@
     <limit effort="9.0" lower="-2.9761" upper="2.9761" velocity="3.485"/>
     <dynamics damping="2.0" friction="2.0"/>
   </joint>
-  <link name="right_hand_camera"/>
+  <link name="right_hand_camera">
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.01"/>
+        <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+      </inertial>
+  </link>
   <joint name="right_hand_camera" type="fixed">
     <origin rpy="0 1.57079632679 0" xyz="0.039552 -0.033 0.0695"/>
     <parent link="right_l5"/>
     <child link="right_hand_camera"/>
     <axis xyz="0 0 0"/>
   </joint>
-  <link name="right_wrist"/>
+  <link name="right_wrist">
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.01"/>
+        <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+      </inertial>
+  </link>
   <joint name="right_wrist" type="fixed">
     <origin rpy="1.57079632679 0 0" xyz="0 0 0.10541"/>
     <parent link="right_l5"/>
@@ -379,7 +381,8 @@
     <parent link="right_l5"/>
     <child link="right_l6"/>
     <axis xyz="0 0 1"/>
-    <limit effort="9.0" lower="-4.7124" upper="4.7124" velocity="4.545"/>
+    <!-- limit effort="9.0" lower="-4.7124" upper="4.7124" velocity="4.545"/ -->
+    <limit effort="9.0" lower="-3.14" upper="3.14" velocity="4.545"/>
     <dynamics damping="2.0" friction="2.0"/>
   </joint>
   <link name="right_hand">
@@ -390,9 +393,9 @@
       </geometry>
     </collision>
     <inertial>
-      <origin rpy="0 0 0" xyz="1.0E-08 1.0E-08 1.0E-08"/>
-      <mass value="1.0E-08"/>
-      <inertia ixx="1.0E-08" ixy="1.0E-08" ixz="1.0E-08" iyy="1.0E-08" iyz="1.0E-08" izz="1.0E-08"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
     </inertial>
   </link>
   <joint name="right_hand" type="fixed">
@@ -400,64 +403,7 @@
     <axis xyz="0 0 1"/>
     <parent link="right_l6"/>
     <child link="right_hand"/>
-  </joint>
-  <link name="right_l1_2">
-    <inertial>
-      <origin rpy="0 0 0" xyz="1.0E-08 1.0E-08 1.0E-08"/>
-      <mass value="1.0E-08"/>
-      <inertia ixx="1.0E-08" ixy="1.0E-08" ixz="1.0E-08" iyy="1.0E-08" iyz="1.0E-08" izz="1.0E-08"/>
-    </inertial>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.035"/>
-      <geometry>
-        <cylinder length="0.14" radius="0.07"/>
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_j1_2" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="right_l1"/>
-    <child link="right_l1_2"/>
-    <axis xyz="0 0 1"/>
-  </joint>
-  <link name="right_l2_2">
-    <inertial>
-      <origin rpy="0 0 0" xyz="1.0E-08 1.0E-08 1.0E-08"/>
-      <mass value="1.0E-08"/>
-      <inertia ixx="1.0E-08" ixy="1.0E-08" ixz="1.0E-08" iyy="1.0E-08" iyz="1.0E-08" izz="1.0E-08"/>
-    </inertial>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.26"/>
-      <geometry>
-        <sphere radius="0.06"/>
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_j2_2" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="right_l2"/>
-    <child link="right_l2_2"/>
-    <axis xyz="0 0 1"/>
-  </joint>
-  <link name="right_l4_2">
-    <inertial>
-      <origin rpy="0 0 0" xyz="1.0E-08 1.0E-08 1.0E-08"/>
-      <mass value="1.0E-08"/>
-      <inertia ixx="1.0E-08" ixy="1.0E-08" ixz="1.0E-08" iyy="1.0E-08" iyz="1.0E-08" izz="1.0E-08"/>
-    </inertial>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0.01 0.26"/>
-      <geometry>
-        <sphere radius="0.06"/>
-      </geometry>
-    </collision>
-  </link>
-  <joint name="right_j4_2" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="right_l4"/>
-    <child link="right_l4_2"/>
-    <axis xyz="0 0 1"/>
-  </joint>
+</joint>
   <link name="screen">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -474,8 +420,8 @@
     </collision>
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.0001"/>
-      <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
     </inertial>
   </link>
   <joint name="display_joint" type="fixed">
@@ -483,7 +429,13 @@
     <parent link="head"/>
     <child link="screen"/>
   </joint>
-  <link name="head_camera"/>
+  <link name="head_camera">
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.01"/>
+        <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+      </inertial>
+  </link>
   <joint name="head_camera" type="fixed">
     <origin rpy="-2.1293 0 -1.57079632679" xyz="0.0228027 0 0.216572"/>
     <parent link="head"/>
