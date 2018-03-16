@@ -1,5 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="baxter" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:arg name="pedestal" default="true"/>
+  <xacro:arg name="static" default="true"/>
   <!-- ros_control plugin -->
   <gazebo>
     <plugin name="sawyer_ros_control" filename="libsawyer_gazebo_ros_control.so">
@@ -10,14 +12,19 @@
     </plugin>
   </gazebo>
   <!-- Gazebo-Specific Link Properties -->
+<xacro:if value="$(arg static)">
   <link name="world"/>
-    <joint name="fixed" type="fixed">
+  <joint name="fixed" type="fixed">
       <parent link="world"/>
       <child link="base"/>
   </joint>
+</xacro:if>
+<xacro:if value="$(arg pedestal)">
   <gazebo reference="pedestal">
     <material>Gazebo/FlatBlack</material>
   </gazebo>
+</xacro:if>
+
   <gazebo reference="torso">
     <self_collide>true</self_collide>
   </gazebo>
