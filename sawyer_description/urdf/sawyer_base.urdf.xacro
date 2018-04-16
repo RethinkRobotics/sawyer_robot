@@ -146,7 +146,7 @@
     <axis xyz="0 0 1"/>
     <limit effort="80.0" lower="-3.0503" upper="3.0503" velocity="1.74"/>
 <xacro:if value="$(arg gazebo)">
-    <dynamics damping="5.0" friction="2.0"/>
+    <dynamics damping="10.0" friction="5.0"/>
 </xacro:if>
   </joint>
   <link name="head">
