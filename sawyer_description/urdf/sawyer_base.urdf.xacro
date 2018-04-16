@@ -1,10 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="sawyer" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:arg name="gazebo" default="false"/>
-  <xacro:if value="$(arg gazebo)">
-    <!-- Gazebo Tags -->
-    <xacro:include filename="$(find sawyer_description)/urdf/sawyer_base.gazebo.xacro" />
-  </xacro:if>
+  <xacro:arg name="pedestal" default="true"/>
   <material name="black">
     <color rgba="0 0 0 1"/>
   </material>
@@ -31,12 +28,15 @@
         <color rgba=".2 .2 .2 1"/>
       </material>
     </visual>
+<xacro:unless value="$(arg gazebo)">
     <inertial>
       <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
       <mass value="0.0001"/>
       <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
     </inertial>
+</xacro:unless>
   </link>
+<xacro:if value="$(arg pedestal)">
   <link name="pedestal">
     <visual>
       <origin rpy="1.57079632679 0 -1.57079632679" xyz="0.26 0.345 -0.91488"/>
@@ -83,20 +83,21 @@
     <parent link="base"/>
     <child link="pedestal_feet"/>
   </joint>
-  <joint name="torso_t0" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="base"/>
-    <child link="torso"/>
-  </joint>
   <joint name="pedestal_fixed" type="fixed">
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
     <parent link="base"/>
     <child link="pedestal"/>
   </joint>
+</xacro:if>
   <joint name="right_arm_mount" type="fixed">
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
     <parent link="base"/>
     <child link="right_arm_base_link"/>
+  </joint>
+  <joint name="torso_t0" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="base"/>
+    <child link="torso"/>
   </joint>
   <link name="right_arm_base_link">
     <inertial>
@@ -144,7 +145,9 @@
     <child link="right_l0"/>
     <axis xyz="0 0 1"/>
     <limit effort="80.0" lower="-3.0503" upper="3.0503" velocity="1.74"/>
-    <dynamics damping="5.0" friction="5.0"/>
+<xacro:if value="$(arg gazebo)">
+    <dynamics damping="10.0" friction="5.0"/>
+</xacro:if>
   </joint>
   <link name="head">
     <inertial>
@@ -172,14 +175,18 @@
     <child link="head"/>
     <axis xyz="0 0 1"/>
     <limit effort="8" lower="-5.0952" upper="0.9064" velocity="1.8"/>
+<xacro:if value="$(arg gazebo)">
     <dynamics damping="1.0" friction="0.5"/>
+</xacro:if>
   </joint>
   <link name="right_torso_itb">
+<xacro:unless value="$(arg gazebo)">
     <inertial>
       <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
       <mass value="0.0001"/>
       <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
     </inertial>
+</xacro:unless>
   </link>
   <joint name="right_torso_itb" type="fixed">
     <origin rpy="0 -1.57079632679 0" xyz="-.055 0 .22"/>
@@ -213,7 +220,9 @@
     <child link="right_l1"/>
     <axis xyz="0 0 1"/>
     <limit effort="80.0" lower="-3.8095" upper="2.2736" velocity="1.328"/>
-    <dynamics damping="5.0" friction="5.0"/>
+<xacro:if value="$(arg gazebo)">
+    <dynamics damping="5.0" friction="2.0"/>
+</xacro:if>
   </joint>
   <link name="right_l2">
     <inertial>
@@ -241,7 +250,9 @@
     <child link="right_l2"/>
     <axis xyz="0 0 1"/>
     <limit effort="40.0" lower="-3.0426" upper="3.0426" velocity="1.957"/>
-    <dynamics damping="5.0" friction="5.0"/>
+<xacro:if value="$(arg gazebo)">
+    <dynamics damping="5.0" friction="2.0"/>
+</xacro:if>
   </joint>
   <link name="right_l3">
     <inertial>
@@ -269,7 +280,9 @@
     <child link="right_l3"/>
     <axis xyz="0 0 1"/>
     <limit effort="40.0" lower="-3.0439" upper="3.0439" velocity="1.957"/>
-    <dynamics damping="5.0" friction="5.0"/>
+ <xacro:if value="$(arg gazebo)">
+    <dynamics damping="1.0" friction="0.5"/>
+</xacro:if>
   </joint>
   <link name="right_l4">
     <inertial>
@@ -297,14 +310,18 @@
     <child link="right_l4"/>
     <axis xyz="0 0 1"/>
     <limit effort="9.0" lower="-2.9761" upper="2.9761" velocity="3.485"/>
-    <dynamics damping="2.0" friction="2.0"/>
+<xacro:if value="$(arg gazebo)">
+    <dynamics damping="2.0" friction="1.0"/>
+</xacro:if>
   </joint>
   <link name="right_arm_itb">
+<xacro:unless value="$(arg gazebo)">
     <inertial>
       <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
       <mass value="0.0001"/>
       <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
     </inertial>
+</xacro:unless>
   </link>
   <joint name="right_arm_itb" type="fixed">
     <origin rpy="0 -1.57079632679 0" xyz="-.055 0 .075"/>
@@ -338,7 +355,9 @@
     <child link="right_l5"/>
     <axis xyz="0 0 1"/>
     <limit effort="9.0" lower="-2.9761" upper="2.9761" velocity="3.485"/>
-    <dynamics damping="2.0" friction="2.0"/>
+<xacro:if value="$(arg gazebo)">
+    <dynamics damping="1.0" friction="0.5"/>
+</xacro:if>
   </joint>
   <link name="right_hand_camera"/>
   <joint name="right_hand_camera" type="fixed">
@@ -379,8 +398,13 @@
     <parent link="right_l5"/>
     <child link="right_l6"/>
     <axis xyz="0 0 1"/>
+<xacro:if value="$(arg gazebo)">
+    <limit effort="9.0" lower="-3.14" upper="3.14" velocity="4.545"/>
+    <dynamics damping="1.0" friction="0.5"/>
+</xacro:if>
+<xacro:unless value="$(arg gazebo)">
     <limit effort="9.0" lower="-4.7124" upper="4.7124" velocity="4.545"/>
-    <dynamics damping="2.0" friction="2.0"/>
+</xacro:unless>
   </joint>
   <link name="right_hand">
     <collision>
@@ -389,11 +413,20 @@
         <cylinder length="0.03" radius="0.035"/>
       </geometry>
     </collision>
+<xacro:if value="$(arg gazebo)">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0.1 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>
+  </inertial>
+</xacro:if>
+<xacro:unless value="$(arg gazebo)">
     <inertial>
       <origin rpy="0 0 0" xyz="1.0E-08 1.0E-08 1.0E-08"/>
       <mass value="1.0E-08"/>
       <inertia ixx="1.0E-08" ixy="1.0E-08" ixz="1.0E-08" iyy="1.0E-08" iyz="1.0E-08" izz="1.0E-08"/>
     </inertial>
+</xacro:unless>
   </link>
   <joint name="right_hand" type="fixed">
     <origin rpy="0 0 1.570796" xyz="0 0 0.0245"/>
@@ -402,11 +435,13 @@
     <child link="right_hand"/>
   </joint>
   <link name="right_l1_2">
+<xacro:unless value="$(arg gazebo)">
     <inertial>
       <origin rpy="0 0 0" xyz="1.0E-08 1.0E-08 1.0E-08"/>
       <mass value="1.0E-08"/>
       <inertia ixx="1.0E-08" ixy="1.0E-08" ixz="1.0E-08" iyy="1.0E-08" iyz="1.0E-08" izz="1.0E-08"/>
     </inertial>
+</xacro:unless>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0.035"/>
       <geometry>
@@ -421,11 +456,13 @@
     <axis xyz="0 0 1"/>
   </joint>
   <link name="right_l2_2">
+<xacro:unless value="$(arg gazebo)">
     <inertial>
       <origin rpy="0 0 0" xyz="1.0E-08 1.0E-08 1.0E-08"/>
       <mass value="1.0E-08"/>
       <inertia ixx="1.0E-08" ixy="1.0E-08" ixz="1.0E-08" iyy="1.0E-08" iyz="1.0E-08" izz="1.0E-08"/>
     </inertial>
+</xacro:unless>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0.26"/>
       <geometry>
@@ -440,11 +477,13 @@
     <axis xyz="0 0 1"/>
   </joint>
   <link name="right_l4_2">
+<xacro:unless value="$(arg gazebo)">
     <inertial>
       <origin rpy="0 0 0" xyz="1.0E-08 1.0E-08 1.0E-08"/>
       <mass value="1.0E-08"/>
       <inertia ixx="1.0E-08" ixy="1.0E-08" ixz="1.0E-08" iyy="1.0E-08" iyz="1.0E-08" izz="1.0E-08"/>
     </inertial>
+</xacro:unless>
     <collision>
       <origin rpy="0 0 0" xyz="0 0.01 0.26"/>
       <geometry>
@@ -472,11 +511,13 @@
         <sphere radius="0.001"/>
       </geometry>
     </collision>
+<xacro:unless value="$(arg gazebo)">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.0001"/>
       <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
     </inertial>
+</xacro:unless>
   </link>
   <joint name="display_joint" type="fixed">
     <origin rpy="1.57079632679 0 1.57079632679" xyz="0.03 0.0 0.105"/>
