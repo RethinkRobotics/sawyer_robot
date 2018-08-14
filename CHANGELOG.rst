@@ -1,3 +1,7 @@
+5.3.0 (2018-8-14)
+---------------------------------
+- No new changes for this repository
+
 5.2.0 Patch (2018-4-16)
 ---------------------------------
 - Adds new URDF Xacro Args (removable pedestal, fixed pose in Gazebo)
