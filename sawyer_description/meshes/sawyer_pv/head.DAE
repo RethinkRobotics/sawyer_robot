@@ -14,7 +14,7 @@
   <library_effects>
     <effect id="Mtl5-effect">
       <profile_COMMON>
-        <technique sid="common">
+        <technique sid="standard">
           <phong>
             <emission>
               <color sid="emission">0 0 0 1</color>
@@ -31,16 +31,14 @@
             <transparent opaque="A_ONE">
               <color>1 1 1 1</color>
             </transparent>
-            <index_of_refraction>
-              <float sid="index_of_refraction">1</float>
-            </index_of_refraction>
+            <transparency><float>1</float></transparency>
           </phong>
         </technique>
       </profile_COMMON>
     </effect>
     <effect id="Mtl1-effect">
       <profile_COMMON>
-        <technique sid="common">
+        <technique sid="standard">
           <phong>
             <emission>
               <color sid="emission">0 0 0 1</color>
@@ -57,16 +55,14 @@
             <transparent opaque="A_ONE">
               <color>1 1 1 1</color>
             </transparent>
-            <index_of_refraction>
-              <float sid="index_of_refraction">1</float>
-            </index_of_refraction>
+            <transparency><float>1</float></transparency>
           </phong>
         </technique>
       </profile_COMMON>
     </effect>
     <effect id="Mtl2-effect">
       <profile_COMMON>
-        <technique sid="common">
+        <technique sid="standard">
           <phong>
             <emission>
               <color sid="emission">0 0 0 1</color>
@@ -83,16 +79,14 @@
             <transparent opaque="A_ONE">
               <color>1 1 1 1</color>
             </transparent>
-            <index_of_refraction>
-              <float sid="index_of_refraction">1</float>
-            </index_of_refraction>
+            <transparency><float>1</float></transparency>
           </phong>
         </technique>
       </profile_COMMON>
     </effect>
     <effect id="Mtl4-effect">
       <profile_COMMON>
-        <technique sid="common">
+        <technique sid="standard">
           <phong>
             <emission>
               <color sid="emission">0 0 0 1</color>
@@ -109,16 +103,14 @@
             <transparent opaque="A_ONE">
               <color>1 1 1 1</color>
             </transparent>
-            <index_of_refraction>
-              <float sid="index_of_refraction">1</float>
-            </index_of_refraction>
+            <transparency><float>1</float></transparency>
           </phong>
         </technique>
       </profile_COMMON>
     </effect>
     <effect id="Mtl6-effect">
       <profile_COMMON>
-        <technique sid="common">
+        <technique sid="standard">
           <phong>
             <emission>
               <color sid="emission">0 0 0 1</color>
@@ -135,16 +127,14 @@
             <transparent opaque="A_ONE">
               <color>1 1 1 1</color>
             </transparent>
-            <index_of_refraction>
-              <float sid="index_of_refraction">1</float>
-            </index_of_refraction>
+            <transparency><float>1</float></transparency>
           </phong>
         </technique>
       </profile_COMMON>
     </effect>
     <effect id="Material_001-effect">
       <profile_COMMON>
-        <technique sid="common">
+        <technique sid="standard">
           <lambert>
             <emission>
               <color sid="emission">0 0 0 1</color>
@@ -158,16 +148,14 @@
             <transparent opaque="A_ONE">
               <color>1 1 1 0</color>
             </transparent>
-            <index_of_refraction>
-              <float sid="index_of_refraction">1</float>
-            </index_of_refraction>
+            <transparency><float>1</float></transparency>
           </lambert>
         </technique>
       </profile_COMMON>
     </effect>
     <effect id="Mtl7-effect">
       <profile_COMMON>
-        <technique sid="common">
+        <technique sid="standard">
           <phong>
             <emission>
               <color sid="emission">0 0 0 1</color>
@@ -184,16 +172,14 @@
             <transparent opaque="A_ONE">
               <color>1 1 1 1</color>
             </transparent>
-            <index_of_refraction>
-              <float sid="index_of_refraction">1</float>
-            </index_of_refraction>
+            <transparency><float>1</float></transparency>
           </phong>
         </technique>
       </profile_COMMON>
     </effect>
     <effect id="Mtl9-effect">
       <profile_COMMON>
-        <technique sid="common">
+        <technique sid="standard">
           <phong>
             <emission>
               <color sid="emission">0 0 0 1</color>
@@ -210,16 +196,14 @@
             <transparent opaque="A_ONE">
               <color>1 1 1 1</color>
             </transparent>
-            <index_of_refraction>
-              <float sid="index_of_refraction">1</float>
-            </index_of_refraction>
+            <transparency><float>1</float></transparency>
           </phong>
         </technique>
       </profile_COMMON>
     </effect>
     <effect id="Mtl8-effect">
       <profile_COMMON>
-        <technique sid="common">
+        <technique sid="standard">
           <phong>
             <emission>
               <color sid="emission">0 0 0 1</color>
@@ -236,16 +220,14 @@
             <transparent opaque="A_ONE">
               <color>1 1 1 1</color>
             </transparent>
-            <index_of_refraction>
-              <float sid="index_of_refraction">1</float>
-            </index_of_refraction>
+            <transparency><float>1</float></transparency>
           </phong>
         </technique>
       </profile_COMMON>
     </effect>
     <effect id="Mtla-effect">
       <profile_COMMON>
-        <technique sid="common">
+        <technique sid="standard">
           <phong>
             <emission>
               <color sid="emission">0 0 0 1</color>
@@ -262,16 +244,14 @@
             <transparent opaque="A_ONE">
               <color>1 1 1 1</color>
             </transparent>
-            <index_of_refraction>
-              <float sid="index_of_refraction">1</float>
-            </index_of_refraction>
+            <transparency><float>1</float></transparency>
           </phong>
         </technique>
       </profile_COMMON>
     </effect>
     <effect id="Mtlb-effect">
       <profile_COMMON>
-        <technique sid="common">
+        <technique sid="standard">
           <phong>
             <emission>
               <color sid="emission">0 0 0 1</color>
@@ -288,9 +268,7 @@
             <transparent opaque="A_ONE">
               <color>1 1 1 1</color>
             </transparent>
-            <index_of_refraction>
-              <float sid="index_of_refraction">1</float>
-            </index_of_refraction>
+            <transparency><float>1</float></transparency>
           </phong>
         </technique>
       </profile_COMMON>
